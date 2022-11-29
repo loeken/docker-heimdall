@@ -1,0 +1,19 @@
+name: release
+on:
+  push:
+    branches: [ main ]
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: tdemin/find-latest-tag@v1
+      with:
+        repo: https://github.com/linuxserver/Heimdall
+    - uses: tdemin@find-latest-tag@v1
+      with:
+        repo: https://github.com/golang/go.git
+        tag: '^v'
+
+    - name: fail when not matching
+      if: ${{ steps.STEP_NAME.outputs.tag == "2.5.2" }}
+      run: exit 1  
