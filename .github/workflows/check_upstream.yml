@@ -1,4 +1,4 @@
-name: release
+name: check last version
 on:
   push:
     branches: [ main ]
@@ -13,7 +13,6 @@ jobs:
     - uses: tdemin/find-latest-tag@v1
       with:
         repo: https://github.com/golang/go.git
-        tag: '^v'
 
     - name: fail when not matching
       if: steps.STEP_NAME.outputs.tag == '2.5.2'
