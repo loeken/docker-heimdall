@@ -3,16 +3,12 @@ on:
   push:
     branches: [ main ]
 jobs:
-  release:
+  check_version:
     runs-on: ubuntu-22.04
     steps:
     - uses: tdemin/find-latest-tag@v1
       with:
         repo: https://github.com/linuxserver/Heimdall
-
-    - uses: tdemin/find-latest-tag@v1
-      with:
-        repo: https://github.com/golang/go.git
 
     - name: fail when not matching
       if: steps.STEP_NAME.outputs.tag == '2.5.2'
