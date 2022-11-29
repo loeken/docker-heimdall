@@ -3,16 +3,16 @@ on:
   push:
     branches: [ main ]
 jobs:
-  checkVersion:
+  check_version:
     runs-on: ubuntu-22.04
     steps:
-      - id: checkVersion
+      - id: check_version
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: linuxserver
           repo: Heimdall
           excludes: prerelease, draft
 
-    - name: fail when not matching
-      if: steps.checkVersion.outputs.release != 'v2.5.2'
-      run: exit 1  
+      - name: fail when not matching
+        if: steps.test.outputs.release != 'v2.5.2'
+        run: exit 1  
