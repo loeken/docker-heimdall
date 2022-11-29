@@ -9,7 +9,8 @@ jobs:
     - uses: tdemin/find-latest-tag@v1
       with:
         repo: https://github.com/linuxserver/Heimdall
-    - uses: tdemin@find-latest-tag@v1
+
+    - uses: tdemin/find-latest-tag@v1
       with:
         repo: https://github.com/golang/go.git
         tag: '^v'
