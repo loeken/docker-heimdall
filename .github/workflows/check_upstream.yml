@@ -6,10 +6,12 @@ jobs:
   check_version:
     runs-on: ubuntu-22.04
     steps:
-    - uses: tdemin/find-latest-tag@v1
-      with:
-        repo: https://github.com/linuxserver/Heimdall
+      - id: test
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: linuxserver
+          repo: Heimdall
+          excludes: prerelease, draft
 
-    - name: fail when not matching
-      if: steps.STEP_NAME.outputs.tag == '2.5.2'
-      run: exit 1  
+      - name: echo
+        run: echo ${{ steps.test.outputs.release }}
