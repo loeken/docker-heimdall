@@ -16,5 +16,5 @@ jobs:
         tag: '^v'
 
     - name: fail when not matching
-      if: ${{ steps.STEP_NAME.outputs.tag == "2.5.2" }}
+      if: steps.STEP_NAME.outputs.tag == "2.5.2"
       run: exit 1  
