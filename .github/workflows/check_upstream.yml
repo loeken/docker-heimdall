@@ -12,6 +12,6 @@ jobs:
           owner: linuxserver
           repo: Heimdall
           excludes: prerelease, draft
-
-      - name: echo
-        run: echo ${{ steps.test.outputs.release }}
+    - name: fail when not matching
+      if: steps.test.outputs.release != 'v2.5.2'
+      run: exit 1  
