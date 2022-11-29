@@ -3,10 +3,10 @@ on:
   push:
     branches: [ main ]
 jobs:
-  check_version:
+  checkVersion:
     runs-on: ubuntu-22.04
     steps:
-      - id: test
+      - id: checkVersion
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           owner: linuxserver
@@ -14,5 +14,5 @@ jobs:
           excludes: prerelease, draft
 
     - name: fail when not matching
-      if: ${{ steps.test.outputs.release }} != 'v2.5.2'
+      if: steps.checkVersion.outputs.release != 'v2.5.2'
       run: exit 1  
