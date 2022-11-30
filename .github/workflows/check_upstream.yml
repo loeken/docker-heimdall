@@ -1,9 +1,9 @@
 name: check last version
 on:
-  push:
-    branches: [ main ]
-  # schedule:
-  # -  cron: '0 10 * * *'
+  # push:
+  #   branches: [ main ]
+  schedule:
+  -  cron: '0 10 * * *'
     
 jobs:
   check_version:
@@ -17,5 +17,5 @@ jobs:
           excludes: prerelease, draft
 
       - name: fail when not matching
-        if: steps.check_version.outputs.release != '2022.11.4'
-        run: echo "last version "${{ steps.test.outputs.release }}" != '2022.11.4'" && exit 1  
+        if: steps.check_version.outputs.release != 'v2.5.3'
+        run: echo "last version "${{ steps.test.outputs.release }}" != 'v2.5.3'" && exit 1  
