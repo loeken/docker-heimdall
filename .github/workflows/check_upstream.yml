@@ -17,5 +17,5 @@ jobs:
           excludes: prerelease, draft
 
       - name: fail when not matching
-        if: steps.check_version.outputs.release != 'v2.5.3'
-        run: echo "last version "${{ env.RELEASE }}" != 'v2.5.3'" && exit 1  
+        if: secrets.release != 'v2.5.3'
+        run: echo "last version "${{ secrets.release }}" != 'v2.5.3'" && exit 1  
