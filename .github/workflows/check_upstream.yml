@@ -15,4 +15,4 @@ jobs:
 
       - name: fail when not matching
         if: steps.test.outputs.release != 'v2.5.2'
-        run: exit 1  
+        run: echo "last version ${{ steps.test.outputs.release }} != 'v2.5.2'" && exit 1  
