@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - id: check_version
-        uses: pozetroninc/github-action-get-latest-release@master
+        uses: loeken/github-action-get-latest-release@master
         with:
           owner: linuxserver
           repo: Heimdall
           excludes: prerelease, draft
+
       - name: fail when not matching
         if: steps.check_version.outputs.release != 'v2.5.3'
         run: echo "last version "${{ env.RELEASE }}" != 'v2.5.3'" && exit 1  
