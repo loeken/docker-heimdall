@@ -17,5 +17,5 @@ jobs:
           excludes: prerelease, draft
 
       - name: fail when not matching
-        if: secrets.release != 'v2.5.3'
+        if: ${{secrets.release} != 'v2.5.3'
         run: echo "last version "${{ secrets.release }}" != 'v2.5.3'" && exit 1  
