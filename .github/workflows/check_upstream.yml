@@ -15,8 +15,6 @@ jobs:
           owner: linuxserver
           repo: Heimdall
           excludes: prerelease, draft
-        run: |
-          echo "RELEASE=${{ steps.test.outputs.release }}" >> $GITHUB_ENV
       - name: fail when not matching
         if: steps.check_version.outputs.release != 'v2.5.3'
         run: echo "last version "${{ env.RELEASE }}" != 'v2.5.3'" && exit 1  
